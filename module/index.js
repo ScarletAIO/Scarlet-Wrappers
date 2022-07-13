@@ -19,8 +19,8 @@ exports.default = new class Scarlet {
 
     /**
      * @description Send a POST Request to create a new user
-     * @param { { username?: string; email?: string; password: string | null; id: string | null; token?: string; } } user 
-     * @returns {Promise<{ username?: string; email?: string; password: string | null; id: string | null; token?: string; }>}
+     * @param {{ username?: string; firstName?:string, age:number; email?: string; password: string | null; }} user 
+     * @returns {Promise<object>}
      */
     createUser(user) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -41,7 +41,7 @@ exports.default = new class Scarlet {
     /**
      * @description Get the user by ID
      * @param {string} id
-     * @returns
+     * @returns {Promise<any>}
      */
     getUser(id) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -64,8 +64,8 @@ exports.default = new class Scarlet {
     /**
      * @description Send a PUT Request to update a user
      * @param {string} id 
-     * @param {{ username?: string; email?: string; password: string | null; id: string | null; token?: string; }} user 
-     * @returns {Promise<{ username?: string; email?: string; password: string | null; id: string | null; token?: string; }>}
+     * @param {{ username?: string; firstName?:string, age:number; email?: string; password: string | null; id: string; }} user 
+     * @returns {Promise<object>}
      */
     updateUser(id, user) {
         return __awaiter(this, void 0, void 0, function* () {

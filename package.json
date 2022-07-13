@@ -1,0 +1,24 @@
+{
+  "name": "scarlet-js",
+  "version": "1.0.0",
+  "description": "Official Node.JS wrapper for Scarlet AI",
+  "main": "./module/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScarletAIO/Scarlet-Wrappers.git#nodejs"
+  },
+  "keywords": [
+    "ai",
+    "text-analysis",
+    "free"
+  ],
+  "author": "Phoenix Reid (KazutoKashima)",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/ScarletAIO/Scarlet-Wrappers/issues"
+  },
+  "homepage": "https://github.com/ScarletAIO/Scarlet-Wrappers/tree/nodejs#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}

@@ -15,15 +15,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
 exports.default = new class Auth {
     constructor() { }
-
-    /**
-     * @param { { username?: string; email?: string; password: string | null; id: string | null; token?: string; } } user 
-     * @returns {Promise<any>}
-     */
     login(user) {
         return __awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, reject) => {
-                axios_1.default.post("https://scarletaio.herokuapp.com/auth", user).then(res => {
+                axios_1.default.post("https://scarletaio.herokuapp.com/auth/", user).then(res => {
                     resolve(res.data);
                 }).catch(err => {
                     reject(err);
@@ -31,12 +26,6 @@ exports.default = new class Auth {
             });
         });
     }
-
-    /**
-     * @param { { id: string, password: string } } user 
-     * @param {string} password 
-     * @returns {Promise<any>}
-     */
     register(user, password) {
         return __awaiter(this, void 0, void 0, function* () {
             password = password || user["password"];

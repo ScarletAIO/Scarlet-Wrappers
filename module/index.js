@@ -117,4 +117,39 @@ exports.default = new class Scarlet {
             });
         });
     }
+    /**
+     * @automated - True
+     * @description Analyze the content to detect for phishing or harassment
+     * @param {string} content - The content to analyse
+     * @returns 
+     */
+    analyzeContent(content) {
+        return __awaiter(this, void 0, void 0, function* () {
+            // check for URLs
+            const regex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+            const urls = content.match(regex);
+            if (urls) {
+                return new Promise((resolve, reject) => {
+                    axios_1.default.post("https://api.scarletai.xyz/v3/analyze/link", {
+                        domain: urls[0],
+                    }).then((res) => {
+                        return resolve(res.data);
+                    }).catch((err) => {
+                        return reject(err);
+                    });
+                });
+            }
+            else {
+                return new Promise((resolve, reject) => {
+                    axios_1.default.post("https://api.scarletai.xyz/v3/analyze/msg", {
+                        domain: content,
+                    }).then((res) => {
+                        return resolve(res.data);
+                    }).catch((err) => {
+                        return reject(err);
+                    });
+                });
+            }
+        });
+    }
 };

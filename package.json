@@ -1,6 +1,6 @@
 {
   "name": "scarletai.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Official Node.JS wrapper for Scarlet AI",
   "main": "./module/index.js",
   "repository": {

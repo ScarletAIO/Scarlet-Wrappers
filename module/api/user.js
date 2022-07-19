@@ -16,11 +16,6 @@ const axios_1 = __importDefault(require("axios"));
 exports.default = new class User {
     constructor() { }
     ;
-    /**
-     * @description Get the user by ID
-     * @param {string} id
-     * @returns
-     */
     getUser(id) {
         return __awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, reject) => {
@@ -36,12 +31,6 @@ exports.default = new class User {
             });
         });
     }
-
-    /**
-     * @description Send a POST Request to create a new user
-     * @param { { username?: string; email?: string; password: string | null; id: string | null; token?: string; } } user 
-     * @returns {Promise<{ username?: string; email?: string; password: string | null; id: string | null; token?: string; }>}
-     */
     createUser(user) {
         return __awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, reject) => {
@@ -53,13 +42,6 @@ exports.default = new class User {
             });
         });
     }
-
-    /**
-     * @description Send a PUT Request to update a user
-     * @param {string} id 
-     * @param {{ username?: string; email?: string; password: string | null; id: string | null; token?: string; }} user 
-     * @returns {Promise<{ username?: string; email?: string; password: string | null; id: string | null; token?: string; }>}
-     */
     updateUser(id, user) {
         return __awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, reject) => {
@@ -75,13 +57,6 @@ exports.default = new class User {
             });
         });
     }
-
-    /**
-     * @description Send a DELETE Request to delete a user
-     * @param {string} id 
-     * @param {string} password 
-     * @returns {Promise<any>}
-     */
     deleteUser(id, password) {
         return __awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, reject) => {

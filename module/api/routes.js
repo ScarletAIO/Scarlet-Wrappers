@@ -6,10 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
 exports.default = new class APIRoutes {
     constructor() { }
-
-    /**
-     * @description Get the base routes
-     */
     get routes() {
         return new Promise((resolve, reject) => {
             axios_1.default.get("https://scarletaio.herokuapp.com/routes").then(res => {
@@ -20,10 +16,6 @@ exports.default = new class APIRoutes {
         });
     }
     ;
-
-    /**
-     * @description Get the auth routes
-     */
     get routesWithAuth() {
         return new Promise((resolve, reject) => {
             axios_1.default.get("https://scarletaio.herokuapp.com/routes/auth").then(res => {

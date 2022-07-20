@@ -1,5 +1,5 @@
 # ScarletAI.JS
- The official Node.JS wrapper to <a href="github.com/ScarletAIO/API" target="_blank">ScarletAI.API</a>
+ The official Node.JS wrapper to <a href="https://github.com/ScarletAIO/API" target="_blank">ScarletAI.API</a>
 ## Functions
 
 <dl>

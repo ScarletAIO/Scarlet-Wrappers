@@ -37,7 +37,6 @@ declare const _default: {
      * @automated True
      * @description Analyze the content to detect for phishing or harassment
      * @param {string} content - The content to analyse
-     * @deprecated
      * @returns
      */
     analyzer(content: string): Promise<void>;

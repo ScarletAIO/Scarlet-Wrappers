@@ -3,6 +3,7 @@ import User from "./api/user";
 import UserDto from './api/interface/User.dto';
 import auth from "./api/auth";
 import fs from "node:fs/promises";
+import APIRoutes from "./api/routes";
 
 export default new class Scarlet {
     constructor() {}
@@ -118,11 +119,12 @@ export default new class Scarlet {
      * @automated True
      * @description Analyze the content to detect for phishing or harassment
      * @param {string} content - The content to analyse
-     * @deprecated
      * @returns 
      */
     public async analyzer(content: string) {
-        throw new Error("Method currently not available. Please refer to issue #3, on ScarletAIO/API, for more information.");
+        await APIRoutes.AnalyzeData(content).then((res) => {
+            return res;
+        })
     }
     
 }

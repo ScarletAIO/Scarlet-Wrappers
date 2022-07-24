@@ -15,11 +15,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const user_1 = __importDefault(require("./api/user"));
 const auth_1 = __importDefault(require("./api/auth"));
 const promises_1 = __importDefault(require("node:fs/promises"));
+const routes_1 = __importDefault(require("./api/routes"));
 exports.default = new class Scarlet {
     constructor() { }
     /**
      * @description Send a POST Request to create a new user
-     * @param {{ username: string; firstName:string, age:number; email: string; password: string | null; }} user
+     * @param {{ username?: string; firstName?:string, age:number; email?: string; password: string | null; }} user
      */
     createUser(user) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -32,7 +33,7 @@ exports.default = new class Scarlet {
     }
     /**
      * @description Get the user by ID
-     * @param {{ username: string; firstName:string, age:number; email: string; password: string | null; id: string; }} user
+     * @param {{ username?: string; firstName?:string, age:number; email?: string; password: string | null; id: string; }} user
      */
     getUser(user) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -55,7 +56,7 @@ exports.default = new class Scarlet {
     }
     /**
      * @description Send a PUT Request to update a user
-     * @param {{ username: string; firstName:string, age:number; email: string; password: string | null; id: string; }} user
+     * @param {{ username?: string; firstName?:string, age:number; email?: string; password: string | null; id: string; }} user
      */
     updateUser(user) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -70,7 +71,7 @@ exports.default = new class Scarlet {
     }
     /**
      * @description Send a DELETE Request to delete a user
-     * @param {{ username: string, firstName:string, age:number, email: string, password: string | null, id: string }} user
+     * @param {{ username?: string; firstName?:string, age:number; email?: string; password: string | null; id: string; }} user
      */
     deleteUser(user) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -85,7 +86,7 @@ exports.default = new class Scarlet {
     }
     /**
      * @description Send a request to retrieve a new token
-     * @param {{ username: string; firstName:string, age:number; email: string; password: string | null; id: string; }} user
+     * @param {{ username?: string; firstName?:string, age:number; email?: string; password: string | null; id: string; }} user
      * @returns
      */
     refreshToken(user) {
@@ -134,12 +135,13 @@ exports.default = new class Scarlet {
      * @automated True
      * @description Analyze the content to detect for phishing or harassment
      * @param {string} content - The content to analyse
-     * @deprecated
      * @returns
      */
     analyzer(content) {
         return __awaiter(this, void 0, void 0, function* () {
-            throw new Error("Method currently not available. Please refer to issue #3, on ScarletAIO/API, for more information.");
+            yield routes_1.default.AnalyzeData(content).then((res) => {
+                return res;
+            });
         });
     }
 };

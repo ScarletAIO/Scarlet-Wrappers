@@ -31,4 +31,5 @@ public record GlobalDto {
     public string? token { get; init; } = default!;
     public string? content { get; init; } = default!;
     public string? domain { get; init; } = default!;
+    public string? expires_in { get; init; } = default!;
 };

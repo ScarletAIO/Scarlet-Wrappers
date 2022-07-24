@@ -24,7 +24,10 @@ exports.default = new class User {
                         "Authorization": `Bearer ${localStorage.getItem("token")}`
                     }
                 }).then(res => {
-                    resolve(res.data);
+                    resolve({
+                        message: res.data.message,
+                        user: res.data
+                    });
                 }).catch(err => {
                     reject(err);
                 });
@@ -57,6 +60,12 @@ exports.default = new class User {
             });
         });
     }
+    /**
+     *
+     * @param {string} id User id
+     * @param {string} password User password
+     * @returns Promise<{ message: string }>
+     */
     deleteUser(id, password) {
         return __awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, reject) => {

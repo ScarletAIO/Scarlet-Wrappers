@@ -1,8 +1,9 @@
 {
   "name": "scarletai.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Official Node.JS wrapper for Scarlet AI",
-  "main": "./module/index.js",
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ScarletAIO/Scarlet-Wrappers.git#nodejs"
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/ScarletAIO/Scarlet-Wrappers/tree/nodejs#readme",
   "dependencies": {
+    "@types/node": "^18.0.6",
     "axios": "^0.27.2"
   }
 }

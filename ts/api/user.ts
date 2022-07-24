@@ -5,21 +5,24 @@ import UserDto from "./interface/User.dto";
 export default new class User {
     constructor() {};
 
-    public async getUser(id: string): Promise<UserDto> {
+    public async getUser(id: UserDto["id"]): Promise<{ message: string, user: UserDto}> {
         return new Promise((resolve, reject) => {
             axios.get(`https://scarletaio.herokuapp.com/v3/users/${id}`, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
                 }
             }).then(res => {
-                resolve(res.data);
+                resolve({
+                    message: res.data.message,
+                    user: res.data
+                });
             }).catch(err => {
                 reject(err);
             });
         });
     }
 
-    public async createUser(user: CreateUserDto): Promise<CreateUserDto> {
+    public async createUser(user: CreateUserDto): Promise<{ message: string, user: UserDto}> {
         return new Promise((resolve, reject) => {
             axios.post("https://scarletaio.herokuapp.com/v3/users", user).then(res => {
                 resolve(res.data);
@@ -29,7 +32,7 @@ export default new class User {
         });
     }
 
-    public async updateUser(id: string, user: UserDto): Promise<UserDto> {
+    public async updateUser(id: UserDto["id"], user: UserDto): Promise<UserDto> {
         return new Promise((resolve, reject) => {
             axios.put(`https://scarletaio.herokuapp.com/v3/users/${id}`, user, {
                 headers: {
@@ -43,7 +46,13 @@ export default new class User {
         });
     }
 
-    public async deleteUser(id: string, password: string): Promise<any> {
+    /**
+     * 
+     * @param {string} id User id
+     * @param {string} password User password
+     * @returns Promise<{ message: string }>
+     */
+    public async deleteUser(id: UserDto["id"], password: UserDto["password"]): Promise<{ message: string }> {
         return new Promise((resolve, reject) => {
             axios.delete(`https://scarletaio.herokuapp.com/v3/users/${id}`, {
                 headers: {
@@ -60,7 +69,7 @@ export default new class User {
         });
     }
 
-    public async resetPassword(id: string, password: string): Promise<UserDto> {
+    public async resetPassword(id: UserDto["id"], password: UserDto["password"]): Promise<UserDto> {
         return new Promise((resolve, reject) => {
             axios.put(`https://scarletaio.herokuapp.com/v3/users/${id}/reset-password`, {
                 password: password
